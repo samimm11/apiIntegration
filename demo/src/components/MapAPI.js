@@ -1,5 +1,5 @@
 import React from 'react';
-import { GoogleMap, Marker, useJsApiLoader } from '@react-google-maps/api';
+import { GoogleMap, MarkerF, useJsApiLoader } from '@react-google-maps/api';
 import * as configConstants from '../config/config'
 
 const MapAPI = () => {
@@ -30,12 +30,12 @@ const MapAPI = () => {
       {isLoaded ? console.log("isLoaded", isLoaded) : ""}
       {isLoaded ? (
         <GoogleMap mapContainerStyle={mapStyles} zoom={3} center={defaultCenter}>
-          <Marker position={defaultCenter} title='Delhi' />
+          <MarkerF position={defaultCenter} title='Delhi' />
           {customerLocations.map((customerLocation) => {
-            return (<Marker key={customerLocation.id}
+            return (<MarkerF key={customerLocation.id}
               position={{ lat: customerLocation.lat, lng: customerLocation.lng }}
               title={customerLocation.name}>
-            </Marker>)
+            </MarkerF>)
           })}
         </GoogleMap>
       ) : (
